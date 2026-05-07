@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoho Asset Uploader</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <main class="container">
+        <header>
+            <h1>Zoho Asset Drop</h1>
+            <p>Upload your files instantly to the cloud.</p>
+        </header>
+
+        <section class="upload-area" id="uploadArea">
+            <input type="file" id="fileInput" hidden accept="image/*,application/pdf" />
+            <div class="upload-content">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="upload-icon">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
+                <h3>Drag & Drop Files Here</h3>
+                <p>or <span class="browse-btn">browse your computer</span></p>
+                <small>Supports JPG, PNG, WEBP, SVG, and PDF</small>
+            </div>
+        </section>
+
+        <div id="uploadProgress" class="hidden">
+            <div class="spinner"></div>
+            <p>Uploading to Zoho WorkDrive...</p>
+        </div>
+    </main>
+
+    <!-- Modal Popup -->
+    <div class="modal-overlay hidden" id="resultModal">
+        <div class="modal-card">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+            </div>
+            <h2>Upload Successful!</h2>
+            <p>Your file has been saved to Zoho WorkDrive.</p>
+            
+            <!-- File Details Section -->
+            <div class="file-details" id="fileDetails">
+                <p id="fileName" style="font-weight: 600; margin-bottom: 0.5rem;">filename.jpg</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    <span id="fileSize">0 KB</span> • ID: <code id="fileId" style="background: rgba(0,0,0,0.2); padding: 0.2rem 0.4rem; border-radius: 4px;">loading...</code>
+                </p>
+            </div>
+            
+            <div class="url-display hidden" id="urlDisplay">
+                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">🔗 Your shareable link:</p>
+                <div class="url-box">
+                    <code id="publicUrlText"></code>
+                    <button id="copyUrlBtn" class="copy-icon-btn" title="Copy URL">📋</button>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="viewBtn" class="btn btn-primary">Preview</button>
+                <button id="fullViewBtn" class="btn btn-primary">View Full</button>
+                <button id="shareBtn" class="btn btn-primary">Share Link</button>
+                <button id="downloadBtn" class="btn btn-secondary">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div class="modal-overlay hidden" id="previewModal">
+        <div class="modal-card preview-card">
+            <button class="close-btn" id="closePreview">&times;</button>
+            <h2>File Preview</h2>
+            <div class="preview-container">
+                <iframe id="previewFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

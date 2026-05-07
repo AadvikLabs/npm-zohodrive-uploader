@@ -1,0 +1,38 @@
+openapi: '3.0.0'
+info:
+  title: Universal Zoho Mail Uploader
+  description: This API forwards files to Zoho Mail.
+  version: '1.0.0'
+servers:
+  - url: http://localhost:3000
+paths:
+  /api/upload:
+    post:
+      operationId: uploadFile
+      summary: Upload a file to Zoho Mail
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: File to upload (JPG, PNG, WEBP, SVG, PDF)
+      responses:
+        "200":
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  attachmentId:
+                    type: string
+                    description: Zoho attachment ID
+        "500":
+          description: Internal Server Error - failed upload
