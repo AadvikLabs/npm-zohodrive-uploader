@@ -1,6 +1,6 @@
 {
-    "name": "@aadviklabs/zohodrive-uploader",
-    "version": "1.0.0",
+    "name": "@aadvik-teklabs/zohodrive-uploader",
+    "version": "1.0.1",
     "description": "API to upload images and PDFs to Zoho WorkDrive",
     "main": "index.js",
     "files": [
