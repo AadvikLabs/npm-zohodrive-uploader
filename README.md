@@ -1,10 +1,10 @@
-# Zoho WorkDrive Asset Uploader
+﻿# Zoho WorkDrive Asset Uploader
 
 A Profesional Node.js library designed to upload images and PDF files securely to **Zoho WorkDrive**. This package handles OAuth2 authentication automatically, using a long-lived Refresh Token to maintain persistent access without manual intervention.
 
 ---
 
-## 🚀 Features
+## ðŸš€ Features
 
 *   **Universal Uploader**: Supports JPG, PNG, WEBP, SVG, and PDF files.
 *   **Automatic Auth**: Handles Zoho OAuth2 Token generation and refreshing automatically.
@@ -13,17 +13,17 @@ A Profesional Node.js library designed to upload images and PDF files securely t
 
 ---
 
-## 📦 Installation
+## ðŸ“¦ Installation
 
 Install the package into your project via npm:
 
 ```bash
-npm install @aadviklabs/zohodrive-uploader
+npm install @aadvik-teklabs/zohodrive-uploader
 ```
 
 ---
 
-## 🚀 Usage
+## ðŸš€ Usage
 Since this is a modular library, you import the ZohoWorkDriveUploader class and initialize it with your credentials. This avoids the use of global environment variables within the core logic.
 
 const ZohoWorkDriveUploader = require('zohodrive-asset-uploader');
@@ -52,7 +52,7 @@ async function uploadToZoho(fileName, fileBuffer, mimeType) {
     }
 }
 
-## 🛠️ Setup & Configuration
+## ðŸ› ï¸ Setup & Configuration
 
 ### 1. Prerequisites
 *   Node.js installed.
@@ -72,7 +72,7 @@ You only need to do this **once**. The token generated here is permanent.
     ```
 ---
 
-## ▶️ Running the Demo
+## â–¶ï¸ Running the Demo
 If you want to test the package logic using the built in Express server:
 1. Ensure your .env file is configured in the root directory with your credentials
 
@@ -87,7 +87,7 @@ User Interface (Swagger UI):
 ---
 
 
-## 🏗️ Project Structure
+## ðŸ—ï¸ Project Structure
 
 *   **`index.js`**: Main entry point for the npm package.
 *   **`src/routes`**: Defines API interaction points (e.g., `/api/upload`).
@@ -100,7 +100,7 @@ User Interface (Swagger UI):
 
 ---
 
-## 🔄 How Authentication Works
+## ðŸ”„ How Authentication Works
 1.  The Library checks for a valid **Access Token** in memory.
 2.  If the token is expired or missing, it uses the Refresh Token to request a new one from    Zoho automatically
 3.  The new token is cached, ensuring seamless and uninterrupted file uploads.
